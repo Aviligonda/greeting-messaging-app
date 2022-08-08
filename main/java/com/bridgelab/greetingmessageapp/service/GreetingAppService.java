@@ -1,7 +1,7 @@
 package com.bridgelab.greetingmessageapp.service;
 
-import com.bridgelab.greetingmessageapp.dto.GreetingAppDTO;
 import com.bridgelab.greetingmessageapp.dto.GreetingUserDTO;
+import com.bridgelab.greetingmessageapp.model.GreetingAppModel;
 import com.bridgelab.greetingmessageapp.repository.GreetingAppRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +16,12 @@ public class GreetingAppService implements IGreetingAppService {
     private GreetingAppRepository greetingAppRepository;
 
     @Override
-    public GreetingAppDTO getMessage() {
-        return greetingAppRepository.save(new GreetingAppDTO(String.format(TEMPLATE, "Srinivas !!")));
+    public GreetingAppModel getMessage() {
+        return greetingAppRepository.save(new GreetingAppModel(String.format(TEMPLATE, "Srinivas !!")));
     }
 
     @Override
-    public GreetingAppDTO greetingMessage(GreetingUserDTO greetingUserDTO) {
-        return greetingAppRepository.save(new GreetingAppDTO(String.format(TEMPLATE, greetingUserDTO.getFirstName()) + greetingUserDTO.getLastName()));
+    public GreetingAppModel greetingMessage(GreetingUserDTO greetingUserDTO) {
+        return greetingAppRepository.save(new GreetingAppModel(String.format(TEMPLATE, greetingUserDTO.getFirstName()) + greetingUserDTO.getLastName()));
     }
 }

@@ -1,11 +1,11 @@
 package com.bridgelab.greetingmessageapp.service;
 
-import com.bridgelab.greetingmessageapp.dto.GreetingAppDTO;
 import com.bridgelab.greetingmessageapp.dto.GreetingUserDTO;
+import com.bridgelab.greetingmessageapp.model.GreetingAppModel;
 
 public interface IGreetingAppService {
-    GreetingAppDTO getMessage();
+    GreetingAppModel getMessage();
 
 
-    GreetingAppDTO greetingMessage(GreetingUserDTO greetingUserDTO);
+    GreetingAppModel greetingMessage(GreetingUserDTO greetingUserDTO);
 }
