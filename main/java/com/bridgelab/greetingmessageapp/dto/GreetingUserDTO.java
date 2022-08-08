@@ -1,5 +1,6 @@
 package com.bridgelab.greetingmessageapp.dto;
 
+
 public class GreetingUserDTO {
     String firstName;
     String lastName;

@@ -16,7 +16,7 @@ public class GreetingAppController {
     @Autowired
     IGreetingAppService greetingAppService;
 
-    //UC1
+    //    UC1
     @GetMapping("/getmessage")
     public GreetingAppDTO sayHello(@RequestParam(value = "name", defaultValue = "world") String name) {
         return new GreetingAppDTO(count.incrementAndGet(), String.format(TEMPLATE, name));
