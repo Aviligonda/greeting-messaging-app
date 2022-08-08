@@ -1,6 +1,7 @@
 package com.bridgelab.greetingmessageapp.contorller;
 
 import com.bridgelab.greetingmessageapp.dto.GreetingAppDTO;
+import com.bridgelab.greetingmessageapp.dto.GreetingUserDTO;
 import com.bridgelab.greetingmessageapp.service.IGreetingAppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,5 +26,11 @@ public class GreetingAppController {
     @GetMapping("/get")
     public GreetingAppDTO sayHello() {
         return greetingAppService.getMessage();
+    }
+
+    //UC3
+    @PostMapping("/post")
+    private GreetingAppDTO sayHello(@RequestBody GreetingUserDTO greetingUserDTO) {
+        return greetingAppService.greetingMessage(greetingUserDTO);
     }
 }
