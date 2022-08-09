@@ -14,4 +14,5 @@ public interface IGreetingAppService {
 
     Optional<GreetingAppModel> message(long id);
 
+    List<GreetingAppModel> getAllMessages();
 }

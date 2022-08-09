@@ -6,6 +6,7 @@ import com.bridgelab.greetingmessageapp.repository.GreetingAppRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -36,5 +37,15 @@ public class GreetingAppService implements IGreetingAppService {
             throw new RuntimeException();
         }
 
+    }
+
+    @Override
+    public List<GreetingAppModel> getAllMessages() {
+        List<GreetingAppModel> getAllMessages = greetingAppRepository.findAll();
+        if (getAllMessages.size() > 0) {
+            return getAllMessages;
+        } else {
+            throw new RuntimeException();
+        }
     }
 }

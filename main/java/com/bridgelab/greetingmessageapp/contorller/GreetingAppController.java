@@ -41,4 +41,9 @@ public class GreetingAppController {
     public Optional<GreetingAppModel> getMessage(@PathVariable long id){
     return greetingAppService.message(id);
     }
+    //UC6
+    @GetMapping("/readalldata")
+    public List<GreetingAppModel> getAllMessages(){
+        return greetingAppService.getAllMessages();
+    }
 }
