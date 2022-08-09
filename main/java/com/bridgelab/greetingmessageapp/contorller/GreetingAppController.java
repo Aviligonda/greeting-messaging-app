@@ -7,6 +7,8 @@ import com.bridgelab.greetingmessageapp.service.IGreetingAppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
@@ -33,5 +35,10 @@ public class GreetingAppController {
     @PostMapping("/post")
     private GreetingAppModel sayHello(@RequestBody GreetingUserDTO greetingUserDTO) {
         return greetingAppService.greetingMessage(greetingUserDTO);
+    }
+    //UC5
+    @GetMapping("/readdata/{id}")
+    public Optional<GreetingAppModel> getMessage(@PathVariable long id){
+    return greetingAppService.message(id);
     }
 }
