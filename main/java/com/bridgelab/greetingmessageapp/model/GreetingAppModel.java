@@ -7,10 +7,10 @@ import javax.persistence.*;
 @Entity
 @Data
 public class GreetingAppModel {
+    String message;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    String message;
 
     public GreetingAppModel(String message) {
         this.message = message;

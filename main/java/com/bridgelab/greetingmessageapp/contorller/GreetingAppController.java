@@ -19,7 +19,7 @@ public class GreetingAppController {
     @Autowired
     IGreetingAppService greetingAppService;
 
-    //    UC1
+    //UC1
     @GetMapping("/getmessage")
     public GreetingAppDTO sayHello(@RequestParam(value = "name", defaultValue = "world") String name) {
         return new GreetingAppDTO(count.incrementAndGet(), String.format(TEMPLATE, name));
@@ -36,19 +36,28 @@ public class GreetingAppController {
     private GreetingAppModel sayHello(@RequestBody GreetingUserDTO greetingUserDTO) {
         return greetingAppService.greetingMessage(greetingUserDTO);
     }
+
     //UC5
     @GetMapping("/readdata/{id}")
-    public Optional<GreetingAppModel> getMessage(@PathVariable long id){
-    return greetingAppService.message(id);
+    public Optional<GreetingAppModel> getMessage(@PathVariable long id) {
+        return greetingAppService.message(id);
     }
+
     //UC6
     @GetMapping("/readalldata")
-    public List<GreetingAppModel> getAllMessages(){
+    public List<GreetingAppModel> getAllMessages() {
         return greetingAppService.getAllMessages();
     }
+
     //UC7
     @PutMapping("editmessage/{id}")
-    public GreetingAppModel editMessage(@PathVariable long id ,@RequestBody GreetingAppDTO greetingAppDTO){
-    return greetingAppService.editMessage(id,greetingAppDTO);
+    public GreetingAppModel editMessage(@PathVariable long id, @RequestBody GreetingAppDTO greetingAppDTO) {
+        return greetingAppService.editMessage(id, greetingAppDTO);
+    }
+
+    //UC8
+    @DeleteMapping("deletemessage/{id}")
+    public GreetingAppModel deleteMessage(@PathVariable long id) {
+        return greetingAppService.deleteMessage(id);
     }
 }
