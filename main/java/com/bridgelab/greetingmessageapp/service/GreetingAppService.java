@@ -2,6 +2,7 @@ package com.bridgelab.greetingmessageapp.service;
 
 import com.bridgelab.greetingmessageapp.dto.GreetingAppDTO;
 import com.bridgelab.greetingmessageapp.dto.GreetingUserDTO;
+import com.bridgelab.greetingmessageapp.exception.GreetingMessageAppException;
 import com.bridgelab.greetingmessageapp.model.GreetingAppModel;
 import com.bridgelab.greetingmessageapp.repository.GreetingAppRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +33,10 @@ public class GreetingAppService implements IGreetingAppService {
     public Optional<GreetingAppModel> message(long id) {
         Optional<GreetingAppModel> getMessage = greetingAppRepository.findById(id);
         if (getMessage.isPresent()) {
-
             return getMessage;
         } else {
-            throw new RuntimeException();
+            throw new GreetingMessageAppException(400, "Greeting not found");
+
         }
 
     }
@@ -46,7 +47,8 @@ public class GreetingAppService implements IGreetingAppService {
         if (getAllMessages.size() > 0) {
             return getAllMessages;
         } else {
-            throw new RuntimeException();
+            throw new GreetingMessageAppException(400, "Greeting not found");
+
         }
     }
 
@@ -58,7 +60,7 @@ public class GreetingAppService implements IGreetingAppService {
             greetingAppRepository.save(isMessagePresent.get());
             return isMessagePresent.get();
         } else {
-            throw new RuntimeException();
+            throw new GreetingMessageAppException(400, "Greeting not found");
         }
     }
 
@@ -69,7 +71,8 @@ public class GreetingAppService implements IGreetingAppService {
             greetingAppRepository.delete(isIdPresent.get());
             return isIdPresent.get();
         } else {
-            throw new RuntimeException();
+            throw new GreetingMessageAppException(400, "Greeting Not Found");
         }
     }
+
 }

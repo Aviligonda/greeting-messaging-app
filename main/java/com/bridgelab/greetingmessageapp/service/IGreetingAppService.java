@@ -3,6 +3,7 @@ package com.bridgelab.greetingmessageapp.service;
 import com.bridgelab.greetingmessageapp.dto.GreetingAppDTO;
 import com.bridgelab.greetingmessageapp.dto.GreetingUserDTO;
 import com.bridgelab.greetingmessageapp.model.GreetingAppModel;
+import com.bridgelab.greetingmessageapp.util.Response;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,4 +21,5 @@ public interface IGreetingAppService {
     GreetingAppModel editMessage(long id, GreetingAppDTO greetingAppDTO);
 
     GreetingAppModel deleteMessage(long id);
+
 }

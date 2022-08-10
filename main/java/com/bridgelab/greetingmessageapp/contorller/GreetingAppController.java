@@ -4,6 +4,7 @@ import com.bridgelab.greetingmessageapp.dto.GreetingAppDTO;
 import com.bridgelab.greetingmessageapp.dto.GreetingUserDTO;
 import com.bridgelab.greetingmessageapp.model.GreetingAppModel;
 import com.bridgelab.greetingmessageapp.service.IGreetingAppService;
+import com.bridgelab.greetingmessageapp.util.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -60,4 +61,6 @@ public class GreetingAppController {
     public GreetingAppModel deleteMessage(@PathVariable long id) {
         return greetingAppService.deleteMessage(id);
     }
+
+
 }
